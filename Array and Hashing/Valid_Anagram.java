@@ -1,9 +1,13 @@
-import java.util.Arrays;
+import java.util.*;
 
 class Solution {
     public boolean isAnagram(String s, String t) {
+        
+        /*
          // Brut Force approach
-         // TC = O(NlogN) used while sorting both the s1 and t1 string below.
+         
+         // TC = O(NlogN + MLogM) used while sorting both the s1 and t1 string below.
+         // SC = O(1)
          
          // convert to char Array
          // Sort both the Array
@@ -24,6 +28,30 @@ class Solution {
          }
 
          return false;
+         */
+
+        // -----------------------------------
+        
+        // Optimal Approach
+
+        // TC = O(N+M)
+        // SC = O(N+M) or O(1) since we have at most 26 different character
+
+        if(s.length() != t.length()) {
+            return false;
+        }
+
+        Map<Character, Integer> sCountHM = new HashMap<>();
+        Map<Character, Integer> tCountHM = new HashMap<>();
+
+        // put each character count in HM for both string
+        for (int i =0; i< s.length(); i++) {
+            sCountHM.put(s.charAt(i), sCountHM.getOrDefault(s.charAt(i), 0) + 1);
+            tCountHM.put(t.charAt(i), tCountHM.getOrDefault(t.charAt(i), 0) + 1);
+        }
+
+        // Compare value of both the hashmap i.e similar like strings
+        return sCountHM.equals(tCountHM);
 
 
     }
