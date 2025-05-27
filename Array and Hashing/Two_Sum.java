@@ -1,3 +1,5 @@
+import java.util.*;
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         
@@ -23,7 +25,7 @@ class Solution {
 
         // ---------------------------------------------------
 
-        // Optimal Approach
+        // Optimal Approach Using Hash map
 
         // TC - O(N)
         // SC - O(N)
