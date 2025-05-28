@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int majorityElement(int[] nums) {
         
@@ -37,6 +36,7 @@ class Solution {
 
         // -------------------------------------------------------------------------------------------
 
+        /*
         // Brut Force Approach With Optimized Hash MAP
 
         // TC - O(N)
@@ -60,6 +60,7 @@ class Solution {
         }
 
         return majorityElement;
+        */
 
         // -------------------------------------------------------------------------------------------
 
@@ -75,10 +76,29 @@ class Solution {
         1. using two variable count = 0 and value = 0
         2. Do single traversal
         3. while looking each number
-        4. on looking each number, if count = 0, change the value to that number and increment the count
-        5. if other number is different just decrement the count by 1
+        4. else on looking each number, if count = 0, change the value to that number and increment the count
+        5. if other number is different just decrement the count by 1 ,
+        6. if the number is same increment the count by 1.
         6. Finally return the value that is basically the majority number
         */
 
+        int count = 0;
+        int majorityElement = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (majorityElement == nums[i]) {
+                count++;
+            }
+            else {
+                if (count == 0) {
+                    majorityElement = nums[i];
+                    count++;
+                }
+                else {
+                    count--;
+                }
+            }
+        }
+        return majorityElement;
     }
 }
