@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class Solution {
     public String longestCommonPrefix(String[] strs) {
 
@@ -23,6 +25,7 @@ class Solution {
             perticular element
         */
 
+        /*// Code
         if(strs.length == 1) {
             return strs[0];
         }
@@ -41,9 +44,6 @@ class Solution {
             int commonPrefix = 0;
             for (int i = 0; i < n; i++) {
                 if(s1.charAt(i) == s2.charAt(i)) {
-                    /*// debugging
-                    System.out.println("S1 i" + s1.charAt(i));
-                    System.out.println("S2 i" + s2.charAt(i));*/
                     commonPrefix++;
                 }
                 else {
@@ -56,6 +56,35 @@ class Solution {
         String res = "";
         for (int i = 0; i < maxPrefix; i++) {
             res = res + strs[0].charAt(i);
+        }
+
+        return res;
+        */
+        
+        //---------------------------------------------------
+
+        // Optimal Approach Using sorting
+
+        // TC : O(NlogN) used for sorting
+        // SC : O(1)
+
+        String res = new String();
+
+        Arrays.sort(strs);
+        String first = strs[0];
+        String last = strs[strs.length-1];
+
+        int n = first.length();
+        if(last.length()< first.length()) {
+            n = last.length();
+        }
+
+        for(int i = 0; i < n; i++) {
+            if(first.charAt(i) == last.charAt(i)) {
+                res = res + first.charAt(i);
+            } else {
+                break;
+            }
         }
 
         return res;
