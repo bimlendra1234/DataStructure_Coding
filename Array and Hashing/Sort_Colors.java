@@ -75,16 +75,30 @@ class Solution {
         System.out.println("white: " + white);
         System.out.println("blue: " + blue);
         
+        /*
         for (int i = 0; i < red; i++) {
             nums[i] = 0;
         }
-
         for (int i =red; i < white+red; i++) {
             nums[i] = 1;
         }
-
         for (int i = white+red; i < white+red+blue; i++) {
             nums[i] = 2;
+        }*/
+        
+        // summarizing above 3 loop in 1 for loop
+        for (int i = 0 ; i < nums.length; i++) {
+            if (i < red) {
+                nums[i] = 0;
+            }
+
+            else if(i < red+white) {
+                nums[i] = 1;
+            }
+
+            else {
+                nums[i] = 2;
+            }
         }
     }
 }
