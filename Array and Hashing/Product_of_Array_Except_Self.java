@@ -55,5 +55,37 @@ class Solution {
         }
 
         return res;
+
+        // --------------------------------------------------
+
+        /*
+        // Optimal Approach for prefix suffix
+
+        // TC: O(N)
+        // SC: O(1) as result in not considered
+
+        //Approach
+        // 1. instead of calculating left - prefix and right postfixt
+        // 2. do all in res itself
+        // 3. from left to right, in res fill left prefix
+        // 4. from right to left , multiply prefix with postfix
+            // i.e postfix of prev number is (next number * next number * next postfix(current one))
+            // i.e    num  :         1,       2,         3,        4'
+         // i.e postfix is :   12*2=24    4*3=12     1'*4'=4,      1'
+
+        int[] res = new int[nums.length];
+        res[0] = 1;
+        for(int i = 1; i < nums.length; i++) {
+            res[i] = res[i-1] * nums[i-1];
+        }
+
+        int postfix = 1;
+        for(int i = nums.length-1; i>=0; i--) {
+            res[i] = res[i] * postfix;
+            postfix = postfix * nums[i];// next postfix
+        }
+
+        return res;
+        */
     }
 }
