@@ -4,7 +4,7 @@ class Solution {
     public int longestConsecutive(int[] nums) {
 
         // BrutForce Approach
-        // with sorting and and for each element calculating its longest common sequences 
+        // with sorting and and for each element calculating its longest common sequences and taking maximum one
 
         // TC: O(N^2)
         // SC: O(1)
