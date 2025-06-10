@@ -24,6 +24,7 @@ class Solution {
 
         // ----------------------------------------------------
 
+        /*
         // Approach using HashSet
 
         // TC: O(N)
@@ -57,6 +58,62 @@ class Solution {
         }
 
         return missing;
+        */
 
+        // ----------------------------------------------------
+
+        // Optimal Approach using Marking as -ve (using array as inpace)
+
+        // TC: O(N)
+        // SC: O(1)
+
+        /*
+        Approach
+        1. preprocess the input array
+            if elem <= 0 or >= len+1 then replace elem as lenOfArray+1
+        2. mark each index or seat as -ve that means it is already occupied
+            Seat = elem -1;
+            only mark seat element as -ve if it is already positive
+            if elem == lenOfArray+1 thrn ignore
+        3. traverse array from first to last and find first positive number
+            we get element as index+1 that is our answer so return it
+            +ve means that element is missing as not marked
+        4.  now since we process all element from 0 to length-1 that is last element
+            that means all position in -ve marked 
+            so all element from [1 to len] i.e possible answer is present
+            so finally our answer will be len+1 
+        */
+
+        int lenOfArray = nums.length;
+        // preprocessing
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] <= 0 || nums[i] >= lenOfArray+1) {
+                nums[i] = lenOfArray+1;
+            }
+        }
+
+        // Marking as -ve
+        for(int i = 0; i < nums.length; i++) {
+            int elem = Math.abs(nums[i]);
+            if(elem == lenOfArray+1) {
+                continue;
+            }
+            int seat = elem - 1;
+            // check because if occour twice then we do not change this sign
+            if(nums[seat] > 0) {
+                nums[seat] = -nums[seat];
+            }
+        }
+
+        // find 1st positive number . that is missing number
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i] > 0) {
+                int seat = i;
+                int element = seat+1;
+                return element;
+            }
+        }
+
+        return lenOfArray+1;
      }
 }
