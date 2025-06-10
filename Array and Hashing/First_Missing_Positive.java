@@ -39,6 +39,8 @@ class Solution {
         // Doubt in iterating hash map - similar to array : // HS.contains(missing)
         // or for (int num : HS) {
 
+        // in set we can directly check if the number is present or not
+        // in the constant time complexity O(1)
         Set<Integer> HS = new HashSet<>();
 
         for(int num : nums) {
