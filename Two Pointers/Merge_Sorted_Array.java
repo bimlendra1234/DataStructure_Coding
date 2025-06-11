@@ -2,6 +2,18 @@ class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
 
         /*
+         * Brute Force Approach
+        1. create a new array of size m+n
+        2. copy all the elements of nums1 and nums2 to that new array in sorted order
+        4. copy all the elements of that new array to nums1
+        5. return nums1
+
+        TC: O(N+M)
+        SC: O(N+M) // for new array
+        Note: this is not in-place solution
+         */
+
+        /*
          * leet code 88. Merge Sorted Array
          * You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, 
                 and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
