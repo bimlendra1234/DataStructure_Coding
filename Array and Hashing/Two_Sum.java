@@ -1,3 +1,5 @@
+// Leetcode: 1. Two Sum
+
 import java.util.*;
 
 class Solution {
@@ -24,12 +26,29 @@ class Solution {
         */
 
         // ---------------------------------------------------
-
-        // Optimal Approach Using Hash map
+        
+        // Optimal Approach Using HashMap
 
         // TC - O(N)
         // SC - O(N)
 
+        // *********
+        // Approach
+        /*
+        1. use hashmap(HM) to store number and its index
+        2. use for loop to traverse each element
+            a. For each element, find difference that will add up to target i.e target - nums[i]
+            b. if this difference exist in HM, boom we got our both element
+                one element is current in for loop so take this index
+                other element is in HM, and its value is the index take that
+                store both index in the resultant array - ans
+            c. If the element do not exist in the HM
+                then put loop element and its index in the HM (Note: not the difference).
+        3. Finally return the resultant array - res
+        */
+
+        // *********
+        // Code
         int[] ans = new int[2];
 
         Map<Integer, Integer> HM = new HashMap<>();
@@ -46,8 +65,6 @@ class Solution {
                 HM.put(nums[i], i);
             }
         }
-
         return ans;
-
      }
 }
