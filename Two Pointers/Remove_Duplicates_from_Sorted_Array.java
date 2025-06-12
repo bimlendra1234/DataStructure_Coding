@@ -90,8 +90,8 @@ class Solution {
         // SC: O(1)
         
         // ******** 
+        // Approach
         /*
-        Approach
         (start from 1st index as 0th index is always unique)
         1. one pointer idx where we will insert element and increment idx
         2. for loop to see each element
