@@ -25,6 +25,9 @@ class Solution {
         // 1. How to remove duplicate from the list
             // by using Arrays.sort(), this only work in array, will not work in list.
             // use Collections.sort() this will work in list - TC: O(NLOGN)
+            // by using res.contains(eachList) this will check if that list is already present in main result
+            // if not present then only add that list to main result
+            // this will avoid duplicate in main result automatically
 
 
         // *********
