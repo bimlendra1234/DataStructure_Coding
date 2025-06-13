@@ -150,7 +150,7 @@ class Solution {
                     }
                     */
 
-                    // instead arrande left and right smartly
+                    // instead arrange left and right smartly
                     while(left<right && nums[left] == nums[left+1]) {
                         left++;
                     }
