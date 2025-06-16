@@ -2,7 +2,7 @@
 
 class Solution {
     public int trap(int[] height) {
-
+        /*
         // Brut Force Approach, using prefix and suffix extra array
         // TC: O(N)
         // SC: O(N) - For extra prefix and suffix extra array
@@ -55,6 +55,64 @@ class Solution {
         int waterTrapped = 0;
         for(int i = 0; i< height.length; i++) {
             waterTrapped += Math.min(leftMax[i], rightMax[i]) - height[i];
+        }
+
+        return waterTrapped;
+        */
+
+        // -----------------------------------------------------------------
+
+        // Optimal Approach Using two pointer Method
+        // TC: O(N)
+        // SC: O(1)
+
+
+        // *********
+        // Approach
+        /*
+        doing above brutforce approach usng two pointer method
+            calculating leftMax using left pointer
+            calculating rightMax using right pointer
+        
+        1. maintain left pointer to left most element
+            also that is our leftMax element for now
+
+        2. maintain right pointer to right most element
+            also that is our rightMax element for now
+
+        3. which pointer to move
+            // which ever (leftMax or rightMax) is minimum (whichever side moved calculate that side only)
+
+            a. if leftMax < rightMax
+                do left++
+                update leftMax to max (leftMax, height[left])
+                calculate waterCollected at that pointer as => leftMax - height[left];
+
+            b. else if rightMax < leftMax
+                do right--
+                update rightMax to max(rightMax, height[right])
+                calculate waterCollected at that pointer as => rightMax - height[right]
+        */
+
+
+        // *********
+        // Code
+        int left = 0; int leftMax = height[left];
+        int right = height.length-1; int rightMax = height[right];
+        int waterTrapped = 0;
+        
+        while (left < right) {
+            if(leftMax <= rightMax) {
+                left++;
+                leftMax = Math.max(leftMax, height[left]);
+                waterTrapped += leftMax - height[left];
+            }
+            else {
+                // when rightMax < leftMax
+                right--;
+                rightMax = Math.max(rightMax, height[right]);
+                waterTrapped += rightMax - height[right];
+            }
         }
 
         return waterTrapped;
