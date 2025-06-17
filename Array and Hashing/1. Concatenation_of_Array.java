@@ -1,6 +1,5 @@
 // Leetcode: 1929. Concatenation of Array
 
-
 class Solution {
     public int[] getConcatenation(int[] nums) {
 
