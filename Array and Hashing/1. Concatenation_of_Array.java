@@ -3,6 +3,7 @@
 class Solution {
     public int[] getConcatenation(int[] nums) {
 
+        /*
         // Approach that came out of me (will only work for 2 repetation)
         // TC: O(N)
         // SC: O(1)
@@ -14,7 +15,6 @@ class Solution {
             // for each element insert this both at one
                 // ans[i] = nums[i]
                 // ans[i+n] = nums[i]
-        /*
 
 
         // *********
