@@ -12,6 +12,7 @@ class Solution {
         // *********
         // Approach
         //1. using two for loop
+            // and checking each number in the array 
 
         
         // *********
