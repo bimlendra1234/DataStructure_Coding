@@ -6,7 +6,7 @@ import java.util.*;
 // ------------------------------------------------------------------------------------
 
 // Approach Using One Queue
-// TC of Push : (O(N)
+// TC of Push : O(N)
 // TC of rest : O(1)
 // SC: O(1)
 
