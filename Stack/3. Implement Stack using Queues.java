@@ -4,7 +4,7 @@ import java.util.*;
 
 
 /*
-// Approach Using One Two queue - other key mainly used while popping
+// Approach Using One Two queue - other key mainly used while pushing
 // TC of push : O(N)
 // SC of Push: O(N) for using one extra queue
 // TC of rest : O(1)
