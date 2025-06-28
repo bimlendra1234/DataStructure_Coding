@@ -1,3 +1,5 @@
+// Leetcode : 242. Valid Anagram
+
 import java.util.*;
 
 class Solution {
@@ -5,16 +7,20 @@ class Solution {
         
         /*
          // Brut Force approach
-         
          // TC = O(NlogN + MLogM) used while sorting both the s1 and t1 string below.
          // SC = O(1)
          
-         // convert to char Array
-         // Sort both the Array
 
-         // change both back to string
-         // compare both the string
+         // *********
+         // Approach
+         //1. convert to char Array
+         //2. Sort both the Array
+         //3. change both back to string
+         //4. compare both the string
 
+
+         // *********
+         // Code
          char[] s1 = s.toCharArray();
          Arrays.sort(s1);
          String sString = new String(s1);
@@ -32,11 +38,23 @@ class Solution {
 
         // -----------------------------------
         
-        // Optimal Approach
-
+        // Optimal Approach using two hashmap
         // TC = O(N+M)
         // SC = O(N+M) or O(1) since we have at most 26 different character
 
+
+        // *********
+        // Approach
+        /*
+        1. track 2 hashmap for both s and t
+        2. put each character count in HM for both string
+        3. Finally Compare value of both the hashmap i.e similar like strings
+        4. return true if both are same else return false
+        */
+
+
+        // *********
+        // Code
         if(s.length() != t.length()) {
             return false;
         }
