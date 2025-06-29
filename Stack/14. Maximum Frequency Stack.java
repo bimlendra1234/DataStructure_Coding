@@ -70,7 +70,7 @@ class FreqStack {
 
 // -------------------------------------------------------------
 
-// Optimal Approach using stwo hashmap
+// Optimal Approach using two hashmap
 // TC push: O(1)
 // SC push: O(1)
 // TC pop: O(N)
