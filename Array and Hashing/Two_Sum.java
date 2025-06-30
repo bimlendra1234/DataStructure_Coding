@@ -7,10 +7,18 @@ class Solution {
         
         /*
         // Brut Force Approach
-
         // TC - O(N^2) used two for loops 
         // SC - O(1) as no any space used
 
+
+        // *********
+        // Approach
+        // 1. using two for loop
+        //      foreach number checking other number sum that will result to target
+
+
+        // *********
+        // Code
         int[] ans = new int[2];
 
         for (int i = 0; i < nums.length - 1; i++) {
@@ -28,9 +36,9 @@ class Solution {
         // ---------------------------------------------------
         
         // Optimal Approach Using HashMap
-
         // TC - O(N)
         // SC - O(N)
+
 
         // *********
         // Approach
@@ -46,6 +54,7 @@ class Solution {
                 then put loop element and its index in the HM (Note: not the difference).
         3. Finally return the resultant array - res
         */
+
 
         // *********
         // Code
@@ -66,5 +75,5 @@ class Solution {
             }
         }
         return ans;
-     }
+    }
 }
