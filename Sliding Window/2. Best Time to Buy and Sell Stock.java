@@ -32,7 +32,7 @@ class Solution {
 
         //--------------------------------------------------
         
-        // Optimal approach with one Traversal
+        // Optimal approach with one Traversal two pointer or sliding wndow
         // TC: O(N);
         // SC: O(1)
 
