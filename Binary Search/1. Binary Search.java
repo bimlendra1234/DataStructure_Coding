@@ -25,10 +25,32 @@ class Solution {
         */
 
         // -----------------------------------------------------------------------------
-        
+
         // Optimal Approach using binary search
         // TC: O(lonN)
         // SC: O(1)
+
+
+        // *********
+        // Doubt
+        /*
+        1. why time complexity is O(lonN)
+        => Because each comparison in binary search cuts the remaining search space in half.
+
+        | Step              | Size of search interval |
+        | ----------------- | ----------------------- |
+        | start             | n elements            |
+        | 1st comparison    | n / 2                 |
+        | 2nd comparison    | n / 4                 |
+        | 3rd comparison    | n / 8                 |
+        | …                 | …                     |
+        | k-th comparison   | n / 2ᵏ                |
+
+        we stop when the interval shrinks to 1 element:
+        n / 2ᵏ = 1   ⟹   2ᵏ = n   ⟹   k = log₂ n
+        
+        */
+
 
         // *********
         // Approach
