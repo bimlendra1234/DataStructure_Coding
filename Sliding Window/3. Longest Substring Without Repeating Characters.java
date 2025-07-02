@@ -13,14 +13,16 @@ class Solution {
         // *********
         // Approach
         /*
-        1. Use hashmap for each character and boolean trueto know if already exist
+        1. Use Hashmap for each character and boolean true to know if it already exist
         2. if ch not in HM, put in the HM with true and calculate window size
-            update longestSubString to window size f it is greater then longestSubString
+            update longestSubString to window size if it is greater then longestSubString
         3. if ch already in HM that means there is now duplicate
         4. run the while loop till this ch:true is in HM
-            inside, now shring the window by
-            setting start element to false in HM and increase start
+            inside, remove element one by one from start until that duplicate element is removed
+                i.e it become false
+            increase start
         5. outside while loop at last, set CH: true to denote its already seen
+            it denotes that it is not duplicate now
         6. finally return longestSubString
         */
         
@@ -28,26 +30,32 @@ class Solution {
         // *********
         // Code
         
-        // Hashmap that will take Each character and boolean
+        // take HM to identify if element already exist in the substring
         Map<Character, Boolean> HM = new HashMap<>();
+        int longestLen = 0;
 
-        int longestSubString = 0;
         int start = 0;
+        for (int end = 0; end < s.length(); end++) {
+            char endCharacter = s.charAt(end);
 
-        for(int end = 0; end < s.length(); end++) {
-            char ch = s.charAt(end);
-            if(!HM.getOrDefault(ch,false)) {
-                HM.put(ch, true);
-                longestSubString = Math.max(longestSubString, end-start+1);
-            }
-            else{
-                while(HM.get(ch)) {
-                    HM.put(s.charAt(start),false);
-                    start++;
+            // if ch do not contain in HM
+            if (!HM.getOrDefault(endCharacter, false)) {
+                HM.put(endCharacter, true);
+                int windowSize = end - start + 1;
+                longestLen = Math.max(longestLen, windowSize);
+
+            } else {
+                // if ch contain in HM
+                // remove ch begining from start untill duplicate is removed from HM
+                // i.e it becomes false inside HM
+                while (HM.get(endCharacter)) {
+                    HM.put(s.charAt(start), false);
+                    start = start + 1;
                 }
-                HM.put(ch,true);
+                // now add that end character so that its in new substring, old one is already removed
+                HM.put(endCharacter, true);
             }
         }
-        return longestSubString;
+        return longestLen;
     }
 }
