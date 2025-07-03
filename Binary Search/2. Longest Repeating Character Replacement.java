@@ -49,5 +49,89 @@ class Solution {
             }
         }
         return res;
+
+        // ---------------------------------------------------------------
+
+        /*
+         // Optimal code for above approach - sliding window with hashmap
+        // TC: O(N)
+        // SC: O(26) - O(1)
+
+
+        // *********
+        // Approach
+        
+        // 1. Same Above approach
+            // just optimized the maxFrequency count so thst we dont have to run this again and again
+
+            // int fc = 0;
+            // for(char ch : count.keySet()) {
+                // fc = Math.max(fc, count.get(ch));
+            // }
+        
+
+
+        // *********
+        // Code
+        Map<Character, Integer> count = new HashMap<>();
+        int res = 0;
+
+        int start = 0;
+        int maxfc = 0;
+        for(int end = 0; end < s.length(); end++) {
+            count.put(s.charAt(end), count.getOrDefault(s.charAt(end),0)+1);
+
+            int ws = end-start+1;
+            maxfc = Math.max(maxfc, count.get(s.charAt(end)));
+
+            if(ws-maxfc <= k) { // valid window
+                res = Math.max(res, ws);
+            } else { // invalid window
+                count.put(s.charAt(start), count.get(s.charAt(start))-1);
+                start++;
+            }
+        }
+        return res;
+         */
+
+         // ---------------------------------------------------------------
+
+        /*
+         // Optimal code for above approach - sliding window with array instead of hash map
+        // TC: O(N)
+        // SC: O(26) - O(1)
+
+
+        // *********
+        // Approach
+        // 1. Same Above approach using array instead of hash map
+            // just optimized the maxFrequency count so thst we dont have to run this again and again
+
+
+        // *********
+        // Code
+        int[] freq = new int[26];
+        int res = 0;
+
+        int start = 0;
+        int maxfc = 0;
+        for(int end = 0; end < s.length(); end++) {
+            freq[s.charAt(end) - 'A']++;
+
+            int ws = end-start+1;
+            maxfc = Math.max(maxfc, freq[s.charAt(end) - 'A']);
+
+            if(ws-maxfc <= k) { // valid window
+                res = Math.max(res, ws);
+            } else { // invalid window
+                freq[s.charAt(start) - 'A']--;
+                start++;
+            }
+        }
+        return res;
+         */
+
     }
+
+
 }
