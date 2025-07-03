@@ -16,6 +16,8 @@ class Solution {
         // 2. first element at start = 0
         // 3. Traverse each character (end pointer) one by one.
         // 4. Update the character's frequency count in the hashmap.
+            // save maximum frequency count of any character in the current window.
+            // maxfc = Math.max(maxfc, count.get(s.charAt(end)));
         // 5. Check if the window is valid:
              // If (window size - most frequent character count) <= k → valid window.
              // (window size - most frequent count) gives the minimum number of replacements needed.
@@ -106,6 +108,17 @@ class Solution {
         // Approach
         // 1. Same Above approach using array instead of hash map
             // just optimized the maxFrequency count so thst we dont have to run this again and again
+
+
+        // *********
+        // Doubt
+        // Why subtract 'A'?
+            Characters in Java are stored using their ASCII/Unicode values.
+            'A' has a value of 65
+            'B' is 66
+            'C' is 67
+            ... and so on up to 'Z' which is 90.
+            so, s.charAt(right) - 'A' → converts 'A' to 0, 'B' to 1, ..., 'Z' to 25.
 
 
         // *********
