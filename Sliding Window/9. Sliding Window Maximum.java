@@ -107,7 +107,7 @@ class Solution {
         int left = 0;
         int right = 0;
         while(right < nums.length) {
-            // in order to maintain monotonically decreasing stack
+            // in order to maintain monotonically decreasing dequeue
             // only push if peek is greater, if peek is smaller then pop
             while(!dq.isEmpty() && nums[dq.getLast()] < nums[right]) {
                 dq.removeLast();
