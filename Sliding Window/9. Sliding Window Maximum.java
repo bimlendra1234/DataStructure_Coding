@@ -50,6 +50,7 @@ class Solution {
 
         // --------------------------------------------------------------
 
+        /*
         // BrutForce Approach using two for loops
         // TC: O(Nk)
         // SC: O(N)
@@ -72,6 +73,59 @@ class Solution {
                 max = Math.max(max, nums[j]);
             }
             res[i] = max;
+        }
+        return res;
+        */
+
+        // --------------------------------------------------------------
+
+        // Optimal Approach using deque
+        // TC: O(N)
+        // SC: O(N)
+
+
+        // *********
+        // Approach
+        /*
+        1. maintain monotonically decreasing stack
+        2. use dequeue so that we can remove at both first and last
+        3. left=0 and right=0 to maintain window
+        3. add the right element index but before that
+            if the last or peek is smaller pop until its empty or we get greater
+        4. if left index is greater then first element, 
+            then remove the first element
+        5. once the dq size is greater or equal to k
+            update the result with left most element
+        */
+
+
+        // *********
+        // Code
+        int[] res = new int[nums.length-k+1];
+        Deque<Integer> dq = new LinkedList<>(); // will store index here
+
+        int left = 0;
+        int right = 0;
+        while(right < nums.length) {
+            // in order to maintain monotonically decreasing stack
+            // only push if peek is greater, if peek is smaller then pop
+            while(!dq.isEmpty() && nums[dq.getLast()] < nums[right]) {
+                dq.removeLast();
+            }
+            dq.addLast(right);
+
+            // if left index is greater then first element, then remove the first element
+            if(left > dq.getFirst()) {
+                dq.removeFirst();
+            }
+
+            // uodate the res with val using index
+            // answer is at first position of the dequeue
+            if((right+1) >= k) { // most confusing condition
+                res[left] = nums[dq.getFirst()];
+                left++;
+            }
+            right++;
         }
         return res;
     }
