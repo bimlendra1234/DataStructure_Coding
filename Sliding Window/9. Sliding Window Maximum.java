@@ -121,7 +121,7 @@ class Solution {
 
             // uodate the res with val using index
             // answer is at first position of the dequeue
-            if((right+1) >= k) { // most confusing condition
+            if((right-left+1) >= k) { // most confusing condition
                 res[left] = nums[dq.getFirst()];
                 left++;
             }
