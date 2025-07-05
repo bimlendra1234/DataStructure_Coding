@@ -4,8 +4,8 @@ import java.util.*;
 
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
-
-        // BrutForce approach using queue and finding max in each queue
+        /*
+        // BrutForce approach using queue and finding max in each queue came outof me
         // TC: O(Nk)
         // SC : O(N)
 
@@ -44,6 +44,34 @@ class Solution {
                 res[idx++] = max;
                 qu.poll();
             }
+        }
+        return res;
+        */
+
+        // --------------------------------------------------------------
+
+        // BrutForce Approach using two for loops
+        // TC: O(Nk)
+        // SC: O(N)
+
+
+        // *********
+        // Approach
+        // 1. result array will be of size [nums.length-k+1]
+        // 2. for each element in nums, find max in the next k elements
+        // 3. push that max into res
+
+        // *********
+        // Code
+
+        int[] res = new int[nums.length-k+1];
+
+        for(int i = 0; i <= nums.length-k; i++) {
+            int max = nums[i];
+            for(int j = i; j < i+k; j++) {
+                max = Math.max(max, nums[j]);
+            }
+            res[i] = max;
         }
         return res;
     }
