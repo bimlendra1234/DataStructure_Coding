@@ -1,5 +1,6 @@
 // Leetcode: 35. Search Insert Position
 
+
 class Solution {
     public int searchInsert(int[] nums, int target) {
 
@@ -62,6 +63,20 @@ class Solution {
         // above otimal code when considering this
         // We don’t need to manually check for biggest/smallest cases—
         // the standard binary search inherently gives you the right position using the final left.
+
+
+        // *********
+        // Approach
+        /*
+        1. if element exist
+             do the binarysearch and return mid index where it matched
+        2. If element do not exist
+            return left as binary search inherently gives the right position using the final left
+        */
+
+
+        // *********
+        // Code
         int left = 0;
         int right = nums.length-1;
 
