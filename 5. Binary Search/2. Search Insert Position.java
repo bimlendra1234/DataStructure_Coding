@@ -60,7 +60,7 @@ class Solution {
 
         // -----------------------------------------------------------------------------------
 
-        // above otimal code when considering this
+        // optimal code of above when considering this
         // We don’t need to manually check for biggest/smallest cases—
         // the standard binary search inherently gives you the right position using the final left.
 
