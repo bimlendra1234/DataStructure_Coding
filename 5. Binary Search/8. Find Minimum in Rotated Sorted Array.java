@@ -3,7 +3,7 @@
 class Solution {
     public int findMin(int[] nums) {
 
-        // Approach using without BS but with one traversal
+        // Brut Force Approach using without BS but with one traversal
         // TC: O(N) - one traversal
         // SC: O(1)
 
