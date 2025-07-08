@@ -68,6 +68,14 @@ class Solution {
 
 
         // *********
+        // Doubt
+        /*
+        1. checking this functionality: canShipALL(cap, weights, days)
+            revise
+        */
+
+        
+        // *********
         // Code
         int maxWeight = 0;
         int totalWeight = 0;
