@@ -1,13 +1,15 @@
+// Leetcode: 27. Remove Element
+
 class Solution {
     public int removeElement(int[] nums, int val) {
         
-        // Since it is already in place , so this is optimal approach with TC: O(N) and SC: O(1)
-
-        // Optimal Approach
-
+        // Optimal Approach : Since it is already in place
         // TC - O(N)
         // SC - O(1)
 
+
+        // *********
+        // Approach
         /*
         Thought Approach
         1. Take Your Index K = 0 first
@@ -21,6 +23,8 @@ class Solution {
         */
 
 
+        // *********
+        // Code
         int k = 0;
 
         for (int i = 0; i < nums.length; i++) {
