@@ -1,13 +1,30 @@
+// Leetcode: 705. Design HashSet
+
 import java.util.*;
 
+/*
+// Most Naive approach using array anad boolean value at its index
+// TC: O(1)
+// SC: O(N)
+
+
+// *********
+// Approach
+// 1. take advantage of the fact that => 0 <= key <= 10^6
+// 2. For constructor:
+    // declare boolean array
+    // inside constructor, initialize with the size of 10^6
+// 3. For adding key:
+    // at key idx set true
+// 4. for removing key:
+    // at key idx set false
+// 5. for contains key:
+    // return boolean value at that index
+
+
+// *********
+// Code
 class MyHashSet {
-
-    /*
-    // Most basic approach but noot good
-    // TC: O(1)
-    // SC: O(N)
-
-    // taking advantage of the fact that we know 0 <= key <= 10^6
 
     boolean[] arr;
     public MyHashSet() {
@@ -25,13 +42,16 @@ class MyHashSet {
     public boolean contains(int key) {
         return arr[key];
     }
-    */
+}
+*/
 
-    // ---------------------------
+// ----------------------------------------------------------------------------------
 
-    // Actual Implementation approach that need to be understood
+// Actual Implementation approach that need to be understood
     // TC: ?
     // SC: ?
+
+class MyHashSet {
 
     final int bucketSize = 100;
     List<List<Integer>> bucket; // declaring the data Structure
