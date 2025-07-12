@@ -16,9 +16,9 @@
 // *********
 // Approach
 /*
-1. Maintain two pointer first and second with the gap of n+1
+1. Maintain two pointer first and second with the gap of n
     so that our first pointer stand just before the element we need to delete
-2. To maintain gap of n+1, use dummy node that will point to head
+2. To maintain gap of n, use dummy node that will point to head
     its like dummy at idx 0
     head at idx 1
 3. So at begining first point to dummy and second point to head: which is 0 gap between them
