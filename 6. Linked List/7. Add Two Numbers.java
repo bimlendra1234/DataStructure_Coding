@@ -81,6 +81,6 @@ class Solution {
             cur3.next = new ListNode(carry);
         }
 
-        return res.next;
+        return dummy.next;
     }
 }
