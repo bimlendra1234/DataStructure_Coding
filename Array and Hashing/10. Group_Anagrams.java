@@ -1,13 +1,19 @@
+// Leetcode: 49. Group Anagrams
+
 import java.util.*;
 
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
 
-        // TC: O(N) i.e one for loop
+        // Approach using HashMap and sorting each string
+        // TC: O(N * K log K) where N is the number of strings and
+            // K is the maximum length of a string in the array
         // SC: O(N) for using the hashmap
 
-        /* 
+
+        // *********
         // Approach
+        /* 
         1. take a Hashmap to strore sorted string and list of all anagram in array
         2. traverse each string one by one inside the array
         3. now for each string, conver to charArray, sort it and change back to string
@@ -20,20 +26,23 @@ class Solution {
         7. how to do 6 step is create new ArrayList and inside that put all HM.values();
         */
 
-        Map<String, List> HM = new HashMap<>();
+
+        // *********
+        // Code
+        Map<String, List<String>> HM = new HashMap<>();
         for (String elem : strs) {
             char[] temp = elem.toCharArray();
             Arrays.sort(temp);
 
             String sortedTemp = new String(temp);
             if(!HM.containsKey(sortedTemp)) {
-                HM.put(sortedTemp, new ArrayList());
+                HM.put(sortedTemp, new ArrayList<String>());
             }
             HM.get(sortedTemp).add(elem);
         }
 
         // forming the result from the Hashmap
-        ArrayList res = new ArrayList(HM.values());
+        List<List<String>> res = new ArrayList<>(HM.values());
         return res;
     }
 }
