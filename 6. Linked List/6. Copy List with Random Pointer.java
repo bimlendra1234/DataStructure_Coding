@@ -29,7 +29,7 @@ class Solution {
         /*
         1. create new node in between by copying value
             update pointer such that it is in between
-        2. update the pointer of newly created node
+        2. update the random pointer of newly created node
             curr.next : newly created node
             curr.random: old pointer
             curr.random.next: point to new node as well
