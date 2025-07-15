@@ -37,22 +37,22 @@ Iter 1. insertIntoBST(root, val)
 		insertIntoBST(4, 5)    -> will trigger iter 2       : 4 is  returned here (already assigned to the right) from iter 2
 		
 		later after above get value: return root
-					return 4
+						return 4
 		
 iter 2. root.right = insertIntoBST(root.right, val);
 		root.right = insertIntoBST(4.right, val) = insertIntoBST(7, 5)   -> will trigger iter 3      : 7 is returned here (already assigned to the right) from iter 3
 		
-			later after above get value: return root
-							return 4 to iter 1
+		later after above get value: return root
+				return 4 to iter 1
 										
 		
 iter 3. root.left = insertIntoBST(root.left, val);
-		root.left = insertIntoBST(7.left, val)  = insertIntoBST(null, 5) : base case will create node 5 
-																									so here 5 is attached to the lefft of 7
-		return root
-					return 7 to iter 2 call
+		root.left = insertIntoBST(7.left, val)  = insertIntoBST(null, 5) : This is base case will create node 5  and it will return call here
+  															so here 5 is attached to the left of 7
+		later after above get value: return root
+			return 7 to iter 2 call
 
 
 // Time Complexity: O(logN) on average, O(N) in the worst case (unbalanced tree)
-// Space Complexity: O(H) where H is the height of the tree, which is O
+// Space Complexity: O(H) where H is the height of the tree.
  */
