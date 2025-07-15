@@ -16,6 +16,7 @@
  * }
  */
 
+ // Solution using recursion
 
  // *********
  // Approach
@@ -55,6 +56,58 @@ class Solution {
         // now invert right subtree
         invertTree(root.right);
 
+        return root;
+    }
+}
+
+// ------------------------------------------------------
+
+// Solution using Iterative Approach level order traversal
+
+// TC: O(N) - going each node once
+// SC: O(N) - for using queue
+
+
+// *********
+// Approach
+/*
+    1. Using BFS: Level order traversal
+    2. use queue data st and start at root 
+        qu.add(root)
+    3. run while untill queue is not empty
+        pop the node
+        swap its childrean
+        add the children to queue
+    4. finally return the root
+*/
+
+
+// *********
+// Code
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+
+        if(root == null) {
+            return root;
+        }
+
+        Queue<TreeNode> qu = new LinkedList<>();
+        qu.add(root);
+
+        while(!qu.isEmpty()) {
+            TreeNode node = qu.poll();
+
+            TreeNode temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+
+            if(node.left != null) {
+                qu.add(node.left);
+            }
+            if(node.right != null) {
+                qu.add(node.right);
+            }
+        }
         return root;
     }
 }
