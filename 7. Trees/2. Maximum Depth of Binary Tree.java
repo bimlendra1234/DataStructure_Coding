@@ -46,3 +46,19 @@ class Solution {
         return level;
     }
 }
+
+// -------------------------------------------------------------------
+
+// Using DFS (recursive): postorder approach (left-right-root) to compute max depth
+// TC: O(N)
+// SC: O(N)
+
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root == null) {
+            return 0;
+        }
+
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+    }
+}
