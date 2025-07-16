@@ -55,7 +55,7 @@ class Solution {
 
 
 // *********
-// Approach
+// Approach - PostOrder : left+right+rot
 /*
     1. helper function height calculate the height of a subtree.
 
