@@ -1,8 +1,8 @@
 // Leetcode: 572. Subtree of Another Tree
 
 // DFS recursion Approach: checking root then left and right subtree
-// Time  : O(N)  – visit each node once
-// Space : O(max(H, K)) – recursion depth equals taller tree
+// Time  : O(M*N)
+// Space : O(M+N) – recursion depth equals taller tree
 
 
 // *********
