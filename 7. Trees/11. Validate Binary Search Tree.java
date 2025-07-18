@@ -12,7 +12,7 @@
 /*
     1. understand that each element will lie with in their specific range
         root range = [-inf, +inf]
-        Left reange = [-inf, root]
+        Left range = [-inf, root]
         right range = [root, +inf]
 
         if element have value outside their range its not a BST
