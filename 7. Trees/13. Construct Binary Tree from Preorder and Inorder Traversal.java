@@ -90,3 +90,32 @@ class Solution {
         return splitTree(preorder, HM, 0, 0, inorder.length-1);
     }
 }
+
+// -------------------------------------------------
+
+// *********
+// Overall code view
+class Solution {
+    
+    public TreeNode splitTree(int[] preorder, Map<Integer,Integer> HM, int rootIndex, int left, int right) {
+        
+        TreeNode root = new TreeNode(preorder[rootIndex]);
+        int mid = HM.get(preorder[rootIndex]);
+        if(mid > left) {
+            root.left = splitTree(preorder, HM, rootIndex+1, left, mid-1);
+        }
+        if(mid < right) {
+            root.right = splitTree(preorder, HM, rootIndex+mid-left+1, mid+1, right);
+        }
+        return root;
+    }
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        
+        Map<Integer, Integer> HM = new HashMap<>();
+        for(int i = 0; i < inorder.length; i++) {
+            HM.put(inorder[i], i);
+        }
+        return splitTree(preorder, HM, 0, 0, inorder.length-1);
+    }
+}
