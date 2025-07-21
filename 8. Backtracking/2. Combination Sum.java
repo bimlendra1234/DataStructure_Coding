@@ -20,6 +20,14 @@
             this will change our index as index+1 (all remaining element that we will add)
             and total sum will not include the last number that we added 
                 so total will be just total (not total + current element)
+
+    Base Case1:
+    if we found total = target
+        add the currComb in our res and return
+
+    Base Case 2:
+    if index is outof bound or total>target
+        return 
 */
 
 
