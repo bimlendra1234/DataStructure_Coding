@@ -91,3 +91,58 @@ class Solution {
         return res;
     }
 }
+
+// --------------------------------------
+
+// Here it wont check each cell, instead it will just check cell that has same ch as 1st char at word
+
+// *********
+// Code
+class Solution {
+    int rows; 
+    int cols;
+    Set<Pair<Integer,Integer>> HS;
+
+    public boolean exist(char[][] board, String word) {
+        rows = board.length;
+        cols = board[0].length;
+        HS = new HashSet<>(); // will store already visited and found location to avoide already visited cell
+
+        // 1. visit each cell one by one
+        for(int i = 0; i < rows; i++) {
+            for(int j=0; j < cols; j++) {
+                //2. Wont check each cell
+                // here it wont check each cell, instead it will just check cell that has same ch as 1st char at word
+                if(board[i][j] == word.charAt(0)) {
+                    if(dfsBackTrack(i,j,0, word, board)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean dfsBackTrack(int currRow, int currCol, int wordIndex, String word, char[][] board) {
+        // Base Case 1 : for correct case
+        if(wordIndex == word.length()) {
+            return true;
+        }
+
+        // Base Case 2 : If went in wrong path
+        if( currRow < 0 || currCol< 0 || currRow >= rows || currCol >= cols ||
+            HS.contains(new Pair<>(currRow,currCol)) ||
+            board[currRow][currCol] != word.charAt(wordIndex))
+        {
+                return false;
+        }
+
+        HS.add(new Pair<>(currRow,currCol)); // Consier  initially : this is from where our word start
+        boolean res = dfsBackTrack(currRow-1, currCol, wordIndex+1, word, board) ||
+                dfsBackTrack(currRow+1, currCol, wordIndex+1, word, board) ||
+                dfsBackTrack(currRow, currCol+1, wordIndex+1, word, board) ||
+                dfsBackTrack(currRow, currCol-1, wordIndex+1, word, board);
+        HS.remove(new Pair<>(currRow,currCol)); // it came here means res is false and last added ch is invalid so remove it
+        return res;
+    }
+}
