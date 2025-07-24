@@ -19,7 +19,7 @@
         go until where you can reach, up, down, left and right convert all those to water via same function
             consider all it in one single island
 
-    4. next time when we will pass other location, We will count those as seperate island
+    4. next time when we will pass other location, We will count all those with value 1 as seperate island
         and do all thing again
 */
 
