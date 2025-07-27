@@ -27,7 +27,7 @@ class Node {
 
 
 // *********
-// Approach
+// Approach : clone and add its neighbor from HM
 /*
     1. go through each node one by one
     2. create new node for old node and add into the HM.
