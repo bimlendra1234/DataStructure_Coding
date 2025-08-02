@@ -10,7 +10,9 @@
     1. dpMaxLoot[i] = Math.max(dpMaxLoot[i-2] + nums[i], dpMaxLoot[i-1])
 
         select max of (last house(i.e n) + all the max till (n-2) ) or max till (n-1))
-*/
+
+        n-2,  n-1, n : either select => max loot till n-2 + loot at n or maxt loot till n-1n-1 : which ever is max 
+*/  
 
 
 class Solution {
