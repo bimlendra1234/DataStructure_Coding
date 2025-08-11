@@ -34,3 +34,59 @@ class Solution {
         return resProd;
     }
 }
+
+// -----------------------------------------------------------------------------------------
+
+// Optimal Approach With DP
+// TC: O(N)
+// SC: O(1)
+
+
+// *********
+// Approach
+/*
+    1. Maintain:
+        maxProdSoFar → maximum product ending at current index
+        minProdSoFar → minimum product ending at current index
+        (minProdSoFar is needed because a negative number can turn a small product into the largest)
+    2. If nums[i] is 0:
+        reset both maxProdSoFar and minProdSoFar to 1 
+        (subarray can't extend past a 0 in product terms)
+    3. Store temporary max before updating minProdSoFar 
+        because maxProdSoFar's previous value is needed in min calculation
+    4. Update maxProdSoFar and minProdSoFar by:
+        - nums[i] alone
+        - nums[i] * previous maxProdSoFar
+        - nums[i] * previous minProdSoFar
+    5. Update maxProd with the maximum product found so far
+*/
+
+
+// *********
+// Code
+class Solution {
+    public int maxProduct(int[] nums) {
+        int maxProd = nums[0];    // final result
+        int maxProdSoFar = 1;     // max product ending at current index
+        int minProdSoFar = 1;     // min product ending at current index
+
+        for(int i = 0 ; i < nums.length; i++) {
+
+            // reset when encountering zero
+            if(nums[i] == 0) {
+                maxProdSoFar = 1;
+                minProdSoFar = 1;
+                maxProd = Math.max(maxProd, 0); // handle zero itself as subarray
+                continue;
+            }
+
+            int temp = nums[i] * maxProdSoFar;  // store before updating minProdSoFar
+            maxProdSoFar = Math.max(Math.max(nums[i] * maxProdSoFar, nums[i] * minProdSoFar), nums[i]);
+            minProdSoFar = Math.min(Math.min(temp, nums[i] * minProdSoFar), nums[i]);
+            
+            maxProd = Math.max(maxProd, maxProdSoFar);
+        }
+
+        return maxProd;
+    }
+}
