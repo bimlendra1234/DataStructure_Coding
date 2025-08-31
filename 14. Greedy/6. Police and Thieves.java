@@ -49,7 +49,7 @@ class Solution {
         
         int thievesCatched = 0;
         while(p < n && t < n) {
-            if(Math.abs(p-t) <= k) {
+            if(Math.abs(p-t) <= k) { // increment count and go to next police and next thief
                 // police can catch thieves
                 thievesCatched++;
                 // increment to other police
@@ -72,7 +72,7 @@ class Solution {
                 }
             }
             
-            else {
+            else { // go to next police
                 //  p < t : may be next police can catch as current police cant catch
                 p++;
                 while(p < n && arr[p] != 'P') {
