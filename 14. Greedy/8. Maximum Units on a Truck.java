@@ -1,7 +1,7 @@
 // Leetcode : 1710. Maximum Units on a Truck
 
 
-// Exactly Same as Fractional Knapsack
+// Exactly Same as Fractional Knapsack : ratio already given as numberOfUnitsPerBoxi
 
 class Solution {
     public int maximumUnits(int[][] boxTypes, int truckSize) {
