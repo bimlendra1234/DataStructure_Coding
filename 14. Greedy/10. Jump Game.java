@@ -30,6 +30,6 @@ class Solution {
             }
             i++;
         }
-        return false;
+        return false; // loop ended without reaching last index
     }
 }
