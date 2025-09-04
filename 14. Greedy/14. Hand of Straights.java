@@ -1,4 +1,6 @@
 // Leetcode: 846. Hand of Straights
+// Leetcode: 1296. Divide Array in Sets of K Consecutive Numbers
+// (both same problem on LC, hand == nums, groupSize == k)
 
 // *********
 // Complexity
