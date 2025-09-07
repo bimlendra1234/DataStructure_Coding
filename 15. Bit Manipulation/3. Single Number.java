@@ -37,3 +37,39 @@ class Solution {
         return -1;
     }
 }
+
+// ----------------------------------------------------
+
+// Optimal Approach using XOR operation
+
+// *********
+// Complexity
+// TC: O(N) → iterate through nums once
+// SC: O(1) → only one integer variable used
+
+
+// *********
+// Approach
+/*
+    1. Initialize XOR = 0.
+    2. For each element in nums:
+        - Do XOR with current element.
+        - Property: a ^ a = 0 and a ^ 0 = a.
+    3. At the end, all duplicate numbers cancel out → only unique element remains.
+*/
+
+
+// *********
+// Code
+class Solution {
+    public int singleNumber(int[] nums) {
+        
+        int XOR = 0;
+
+        for(int i = 0; i < nums.length; i++) {
+            // XOR of two number is zero i.e a^a = 0
+            XOR = XOR ^ nums[i];
+        }
+        return XOR;
+    }
+}
