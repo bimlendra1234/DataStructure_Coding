@@ -56,3 +56,39 @@ class Solution {
         return flipCount;
     }
 }
+
+// ----------------------------------------------------
+
+// Optimal approach using xor operation
+
+// *********
+// Complexity
+// TC: O(31) → constant time ≈ O(1)
+// SC: O(1) → only a few variables
+
+// *********
+// Approach
+/*
+    1. XOR start and goal → differing bits become 1
+    2. Iterate over each bit position (0 to 30)
+    3. Check if ith bit in XOR result is set
+    4. If yes, increment countSetBit
+    5. Return countSetBit
+*/
+
+// *********
+// Code
+class Solution {
+    public int minBitFlips(int start, int goal) {
+        int ans = start ^ goal;
+
+        int countSetBit = 0;
+        for(int i = 0; i < 31; i++) {
+            if((ans & (1 << i)) != 0) {
+                countSetBit++;
+            }
+        }
+
+        return countSetBit;
+    }
+}
