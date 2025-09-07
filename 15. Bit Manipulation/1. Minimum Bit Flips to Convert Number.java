@@ -92,3 +92,12 @@ class Solution {
         return countSetBit;
     }
 }
+
+/* 
+// Even more optimal approach using built-in function
+class Solution {
+    public int minBitFlips(int start, int goal) {
+        return Integer.bitCount(start ^ goal);
+    }
+}
+*/
