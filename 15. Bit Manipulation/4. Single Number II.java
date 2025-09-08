@@ -32,3 +32,45 @@ class Solution {
         return nums[nums.length-1];
     }
 }
+
+// ----------------------------------------------------
+
+// Most Optimal Approach using Bit Manipulation : concept of buckets
+
+// *********
+// Complexity
+// TC: O(N) → iterate once through nums
+// SC: O(1) → only constant variables used
+
+
+// *********
+// Approach
+/*
+    1. Maintain two bitmasks: 
+        - ones → bits seen once
+        - twos → bits seen twice
+    2. For each num:
+        - Update ones: toggle current bit (XOR) but clear if already in twos.
+        - Update twos: toggle current bit (XOR) but clear if already in ones.
+    3. This ensures that bits appearing 3 times are removed from both masks.
+    4. At the end, ones will contain the single number.
+*/
+
+
+// *********
+// Code
+class Solution {
+    public int singleNumber(int[] nums) {
+        
+        int ones = 0;
+        int twos = 0;
+
+        for(int i = 0; i < nums.length; i++) {
+
+            ones = (ones ^ nums[i]) & ~twos;
+            twos = (twos ^ nums[i]) & ~ones;
+        }
+
+        return ones;
+    }
+}
