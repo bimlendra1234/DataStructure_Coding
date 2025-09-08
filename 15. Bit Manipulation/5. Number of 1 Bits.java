@@ -31,3 +31,56 @@ class Solution {
         return count;
     }
 }
+
+// ----------------------------------------------------
+
+// *********
+// Complexity
+// TC: O(31) → shift until all bits checked
+// SC: O(1) → only counter variable used
+
+
+// *********
+// Approach
+/*
+    1. Use (n & 1) to check last bit → adds 1 if set.
+    2. Right shift n (n >> 1) to move to next bit.
+    3. Repeat until n becomes 0.
+    4. Count keeps track of number of 1 bits.
+*/
+
+/*
+    1. n & 1 => return 1 for odd and return 1 for even
+    2. n/2 => n>>1
+*/
+
+// *********
+// Code
+class Solution {
+    public int hammingWeight(int n) {
+        
+        /*
+        int count = 0;
+        while(n>1) {
+            if(n%2 == 1) { // this means checking odd
+                count++;
+            }
+            n = n/2; // dividing by 2
+        }
+        if(n == 1) {
+            count++;
+        }
+        return count;
+        */
+
+        int count = 0;
+        while(n>1) {
+            count += n&1; // // this means checking odd
+            n = n >> 1; // dividing by 2
+        }
+        if(n == 1) {
+            count++;
+        }
+        return count;
+    }
+}
