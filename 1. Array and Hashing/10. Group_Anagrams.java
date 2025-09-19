@@ -5,26 +5,22 @@ import java.util.*;
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
 
-        // Approach using HashMap and sorting each string
-        // TC: O(N * K log K) where N is the number of strings and
-            // K is the maximum length of a string in the array
-        // SC: O(N) for using the hashmap
+        // *********
+        // Complexity
+        // TC: O(N * K log K) → N = number of strings, K = max length of each string
+            //     → for each string, sorting takes O(K log K)
+        // SC: O(N * K) → storing all strings in HashMap buckets
 
 
         // *********
         // Approach
-        /* 
-        1. take a Hashmap to strore sorted string and list of all anagram in array
-        2. traverse each string one by one inside the array
-        3. now for each string, conver to charArray, sort it and change back to string
-        4. now if that sorted string do not contains inside HM then. 
-            push sorted string as key and one empty Arraylist
-        5. finally push that string as
-            in HM get that sorted key value and add it here. now mine HM work is done
-        6. now i need to return the result that is List<List<String>> i.e i will have 
-            Arraylist and inside that all the list that we get from key and this are all anagram
-        7. how to do 6 step is create new ArrayList and inside that put all HM.values();
-        */
+        /*
+            1. Use a HashMap<String, List<String>>.
+            2. For each string:
+            - Convert to char array and sort it → acts as the key.
+            - Insert the original string into the list mapped to this key.
+            3. Finally, return all the values of the HashMap as the result list.
+*/
 
 
         // *********
