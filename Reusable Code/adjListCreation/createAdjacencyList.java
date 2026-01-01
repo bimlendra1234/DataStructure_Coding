@@ -2,7 +2,7 @@ import java.util.*;
 
 public class createAdjacencyList {
     
-    public Map<Integer, List<Integer>> isBipartite(int[][] graph){
+    public Map<Integer, List<Integer>> createAdjList(int[][] graph){
             Map<Integer, List<Integer>> adjList = new HashMap<>();
             int node = graph.length;
             for(int i = 0; i < node; i++){
